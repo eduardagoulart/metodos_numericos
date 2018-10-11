@@ -8,4 +8,4 @@ B = np.array([[8], [-3], [-11]])
 A_inversa = np.linalg.inv(A)
 
 X = np.dot(A_inversa, B)
-print(X)
+
