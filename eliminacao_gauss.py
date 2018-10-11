@@ -48,9 +48,16 @@ def substitui(matriz_inicial, dimensao):
     return vetor_X
 
 
+def menu():
+    dimensao, matriz = arquivo_matriz()
+    vetor_B = arquivo_matriz()
+    escolha = int(input("1. Gauss \n2. Gauss Seidel \n3. Sair\n"))
+    if escolha == 1:
+        print(substitui(matriz, dimensao))
+    if escolha == 3:
+        return
+    menu()
+
 
 if __name__ == "__main__":
-    dimensao, matriz = arquivo_matriz()
-    vetor_B = arquivo_vetor()
-
-    print(substitui(matriz, dimensao))
+    print(menu())
