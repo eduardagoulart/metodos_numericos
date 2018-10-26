@@ -19,7 +19,7 @@ def arquivo_vetor():
 
 
 # Inicia o método de elimicação de Gauss
-def triangulacao(matriz, dimensao, vetor_b):
+def triangulacao(matriz, vetor_b, dimensao):
     for i in range(0, dimensao - 1):
         for j in range(i+1, dimensao):
             multiplicador = matriz[j][i]/matriz[i][i]
@@ -44,6 +44,7 @@ def substitui(matriz_inicial, dimensao, vetor_b):
 
 
 def gauss_seidel(matriz, vetor_b, dimensao, chute_inicial, iteracoes):
+    y_final = []
     x_anterior = [0.0 for i in range(dimensao)]
     for i in range(iteracoes):
         for j in range(dimensao):
@@ -66,9 +67,11 @@ def gauss_seidel(matriz, vetor_b, dimensao, chute_inicial, iteracoes):
             print("A sequencia converge para [", end="")
             for j in range(dimensao - 1):
                 print(chute_inicial[j], ",", end="")
+                y_final.append(chute_inicial[j])
             print(f'{chute_inicial[dimensao - 1]}]. Gastou {i+1} iterações')
+            y_final.append(chute_inicial[dimensao - 1])            
             print(norma)
-            return
+            return y_final, norma
 
     print("A matriz não converge.")
 
